@@ -12,7 +12,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         password: '',
         password2: ''
     });
-
+    
     const { name, email, password, password2 } = formData;
 
     const onChange = e => setFormData({ ...formData,[e.target.name]: e.target.value });
@@ -21,12 +21,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         if(password !== password2) {
             setAlert('Passwords do not match', 'danger');
         } else {
-            register({ name, email, password });
+          register({ name, email, password });
         }
     };
 
     if(isAuthenticated) {
-      return <Redirect to='/dashboard' />
+      return <Redirect to='/apartmentDetails' />
     }
     return (
         <Fragment>
@@ -78,7 +78,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           //  required
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+
+       <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
