@@ -15,6 +15,8 @@ import { loadUser } from './actions/auth';
 
 import './App.css';
 import ApartmentDetails from './components/dashboard/ApartmentDetails';
+import LeftNav from './components/layout/LeftNavbar';
+
 
 if(localStorage.token) {
     setAuthToken(localStorage.token);
@@ -26,11 +28,12 @@ const App = () => {
     }, []);
     return(
 <Provider store={store}>
-<Router>
+<Router >
     <Fragment>
     <Navbar />
-    
+    <LeftNav  />
     <Route exact path='/'component={Landing} />
+
     <section className="container">
         <Alert />
         <Switch>
