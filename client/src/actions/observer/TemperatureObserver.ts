@@ -1,7 +1,13 @@
 import * as request from 'request'
 import TemperatureAdapter from '../adapter/TemperatureAdapter'
 export type TemperatureObserver = (temperature: Number) => void;
-class WeatherSubeject {
+
+interface Subject {
+    attach(observer: TemperatureObserver): void;
+    detach(observer: TemperatureObserver): void;
+}
+
+class WeatherSubeject implements Subject {
     private observers: TemperatureObserver[] = [];
     private intervalId: number = 0;
 
