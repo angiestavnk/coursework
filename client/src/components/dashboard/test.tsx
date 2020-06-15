@@ -21,10 +21,10 @@ useEffect(() => {
 return (
     <div className="container-weather">
     <div className="background-weather">
-      <div className="Circle1"></div>
-      <div className="Circle2"></div>
-      <div className="Circle3"></div>
-      <div className="content-weather">
+    <div className="Circle1"></div>
+    <div className="Circle2"></div>
+    <div className="Circle3"></div>
+     <div className="content-weather">
         <h1 className="Condition"><i className="material-icons sun"></i> Sunny</h1>
         <h1 className="Temp"> {currentTemperature}&deg;</h1>
         <h1 className="Time">{time.toLocaleTimeString()} </h1>

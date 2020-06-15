@@ -2,6 +2,7 @@ import React from 'react';
 import City from './test.tsx';
 
 import TemperatureChart from './TemperatureChart.tsx';
+import TodayGrid from './TodayGrid.tsx'
 
 const Dashboard = () => {
 	const [chartData, setChartData] = React.useState({})
@@ -29,12 +30,14 @@ const Dashboard = () => {
 		chart ()
 	}, [])
 	return(
+	
 		<div className="App">
 			<h1></h1>
 			<City>Bla</City>
-			<div style={{height:'600px', width: '700px', marginTop: '100px', marginRight:'40px'}}>
+			<div style={{height:'400px', width: '700px', marginTop: '-24px', marginRight:'40px', marginBottom:'32px'}}>
 				<TemperatureChart></TemperatureChart>
 			</div>
+			<TodayGrid></TodayGrid>
 		</div>
 
 	)

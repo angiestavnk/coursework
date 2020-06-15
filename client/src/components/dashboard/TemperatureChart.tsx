@@ -5,6 +5,11 @@ import 'react-dropdown/style.css';
 import TemperatureStrategy from '../../actions/strategy/TemperatureStrategy'
 import ContextStrategy from '../../actions/strategy/ContextStrategy'
 import HumidityStrategy from '../../actions/strategy/HumidityStrategy';
+import ForecastService from '../../actions/facade/ForecastService';
+import SunriseService from '../../actions/facade/SunriseService';
+import UVIndexService from '../../actions/facade/UVIndexService';
+import Facade from '../../actions/facade/Facade';
+import TodayGrid from './TodayGrid';
 const TemperatureChart = () => {
     let strategy = new ContextStrategy(new TemperatureStrategy())
     let labelName = 'Temperature'
@@ -36,13 +41,15 @@ const TemperatureChart = () => {
     }
 
 	React.useEffect(() => {
-		chart ()
+        chart ()
+       const todayDataFacade = new Facade();
+       todayDataFacade.getTodayData().then(function(todayData) {
+           console.log(todayData)
+       });
     }, [])
 
 
     const options = ['Temperature', 'Humidity'];
-
-  
 
     function handleClick(event: any) {
         console.log("DID SELECT")
@@ -54,7 +61,6 @@ const TemperatureChart = () => {
 
         } else {
             setStrategyType('Humidity')
-
             strategy.setStrategy(new HumidityStrategy());
             labelName = 'Humidity'
             bkColor = ['rgba(255, 153, 51, 0.6)']
@@ -83,6 +89,7 @@ const TemperatureChart = () => {
             }
         }}/>
     </div>
+    
     )
 }
 export default TemperatureChart;
