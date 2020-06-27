@@ -1,6 +1,9 @@
 {
   "name": "courseproj",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.0"
+  },
   "description": "Coursework project",
   "main": "server.js",
   "scripts": {
