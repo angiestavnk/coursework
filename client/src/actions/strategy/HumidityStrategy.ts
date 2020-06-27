@@ -3,7 +3,7 @@ import IChartStrategy from './IChartStrategy';
 import Axios from 'axios';
 export default class HumidityStrategy {
     async(): Promise<ChartData[]> {
-        const response = Axios.get('http://localhost:5000/api/humidity')
+        const response = Axios.get('/api/humidity')
         return new Promise<ChartData[]>((resolve, reject) => {
             response.then(function(data) {
                 let humidities: ChartData[] = []

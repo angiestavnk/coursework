@@ -3,7 +3,7 @@ import IChartStrategy from './IChartStrategy';
 import Axios from 'axios';
 export default class TemperatureStrategy implements IChartStrategy{
     async(): Promise<ChartData[]> {
-        const response = Axios.get('http://localhost:5000/api/temperature')
+        const response = Axios.get('/api/temperature')
         return new Promise<ChartData[]>((resolve, reject) => {
             response.then(function(data) {
                 // console.log(data.data)
