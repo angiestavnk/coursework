@@ -19,9 +19,10 @@ class WeatherSubeject implements Subject {
         this.observers = this.observers.filter(observer => observer !== observerToRemove);
     }
     public updateWeather() {
+        this.fetchWeather();
         this.intervalId = window.setInterval(() => {
             this.fetchWeather();
-        }, 1000);
+        }, 3600000);
     }
     public cleanUpdates() {
         if (this.intervalId) {
