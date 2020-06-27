@@ -20,6 +20,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/apartment', require('./routes/api/apartment'));
 app.use('/api/temperature', require('./routes/api/temperature'));
 app.use('/api/humidity', require('./routes/api/humidity'))
+app.use('/api/brightness', require('./routes/api/brightness'))
 
 const PORT = process.env.PORT || 5000;
 
