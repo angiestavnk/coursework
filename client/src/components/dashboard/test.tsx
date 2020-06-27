@@ -8,7 +8,7 @@ const City: React.FC = () =>{
     }
 useEffect(() => {
     weatherSubject.attach(onTemperatureUpdated)
-
+    weatherSubject.updateWeather();
     window.setInterval(() => {
         setTime(new Date()) 
      }, 1000);

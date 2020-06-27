@@ -46,6 +46,6 @@ class WeatherSubeject implements Subject {
     }
 }
 const weatherSubeject = new WeatherSubeject();
-weatherSubeject.updateWeather();
+//weatherSubeject.updateWeather();
 //weatherSubeject.setInterval();
 export default weatherSubeject;
