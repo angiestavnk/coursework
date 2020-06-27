@@ -20,9 +20,6 @@ class WeatherSubeject implements Subject {
     }
     public updateWeather() {
         this.fetchWeather();
-        this.intervalId = window.setInterval(() => {
-            this.fetchWeather();
-        }, 3600000);
     }
     public cleanUpdates() {
         if (this.intervalId) {
@@ -32,17 +29,23 @@ class WeatherSubeject implements Subject {
     }
     private fetchWeather = async() => {
         let adapter = new TemperatureAdapter()
+        console.log('blabla')
         let test: number
         const self = this
         adapter.async().then(function(success) {
             self.notify(success)
         })
     }
-    
+    public setInterval() {
+        this.intervalId = window.setInterval(() => {
+            this.updateWeather();
+        }, 3600000);
+    }
     private notify(temperature: Number) {
         this.observers.forEach(observer => observer(temperature));
     }
 }
 const weatherSubeject = new WeatherSubeject();
 weatherSubeject.updateWeather();
+weatherSubeject.setInterval();
 export default weatherSubeject;
