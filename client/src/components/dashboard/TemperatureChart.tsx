@@ -5,6 +5,7 @@ import 'react-dropdown/style.css';
 import TemperatureStrategy from '../../actions/strategy/TemperatureStrategy'
 import ContextStrategy from '../../actions/strategy/ContextStrategy'
 import HumidityStrategy from '../../actions/strategy/HumidityStrategy';
+import BrightnessStrategy from '../../actions/strategy/BrightnessStrategy'
 import ForecastService from '../../actions/facade/ForecastService';
 import SunriseService from '../../actions/facade/SunriseService';
 import UVIndexService from '../../actions/facade/UVIndexService';
@@ -49,7 +50,7 @@ const TemperatureChart = () => {
     }, [])
 
 
-    const options = ['Temperature', 'Humidity'];
+    const options = ['Temperature', 'Humidity', 'Brightness'];
 
     function handleClick(event: any) {
         console.log("DID SELECT")
@@ -59,10 +60,15 @@ const TemperatureChart = () => {
             setStrategyType('Temperature')            
             labelName = 'Temperature'
 
-        } else {
+        } else if(event.value === "Humidity") {
             setStrategyType('Humidity')
             strategy.setStrategy(new HumidityStrategy());
             labelName = 'Humidity'
+            bkColor = ['rgba(255, 153, 51, 0.6)']
+        } else {
+            setStrategyType('Brightness')
+            strategy.setStrategy(new BrightnessStrategy());
+            labelName = 'Brightness'
             bkColor = ['rgba(255, 153, 51, 0.6)']
         }
        chart()
