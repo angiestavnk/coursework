@@ -1,1 +1,1 @@
-# MultiHepler Project (Using MERN Stack)
+# MultiHepler Project (Using MERN Stack + Design Patterns)
