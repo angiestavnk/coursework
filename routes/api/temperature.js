@@ -20,11 +20,11 @@ async (req, res) => {
             res.status(200).send('Success');
         } catch(err){
             console.error(err.message);
-            res.status(500).send('Server error');
+            res.status(500).send(req);
         }
 })
 router.get('/',  async (req, res) => {
-   Temperature.find({}, function(err, temperature){
+    Temperature.find({}, function(err, temperature){
         res.send(JSON.parse(JSON.stringify(temperature)))
    })
    

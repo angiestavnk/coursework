@@ -23,10 +23,14 @@ const TemperatureChart = () => {
             console.log(data)
             let labels: String[] = [];
             let temp: number[] = [];
+            data = data.slice(data.length - 20, data.length)
             data.forEach(function(element){
-                labels.push(element.date)
+                let time = element.date.split(' ')
+                labels.push(time[1])
                 temp.push(element.value)
             })
+            // temp = temp.slice(temp.length - 20, temp.length)
+            // labels = labels.slice(labels.length - 20, labels.length)
             setChartData({
                 labels: labels,
                 datasets: [
@@ -64,12 +68,12 @@ const TemperatureChart = () => {
             setStrategyType('Humidity')
             strategy.setStrategy(new HumidityStrategy());
             labelName = 'Humidity'
-            bkColor = ['rgba(255, 153, 51, 0.6)']
+            bkColor = ['rgba(3, 211, 252, 0.6)']
         } else {
             setStrategyType('Brightness')
             strategy.setStrategy(new BrightnessStrategy());
             labelName = 'Brightness'
-            bkColor = ['rgba(255, 153, 51, 0.6)']
+            bkColor = ['rgba(52, 168, 87, 0.6)']
         }
        chart()
       }

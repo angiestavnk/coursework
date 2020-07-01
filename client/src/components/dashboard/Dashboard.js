@@ -1,13 +1,19 @@
 import React from 'react';
 import City from './test.tsx';
-
+import { Link, Redirect } from 'react-router-dom';
 import TemperatureChart from './TemperatureChart.tsx';
 import TodayGrid from './TodayGrid.tsx'
-
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+  } from 'reactstrap';
+import ViewData from './ViewData';
 
 const Dashboard = () => {
 	const [chartData, setChartData] = React.useState({})
 	const [chart1, setChart] = React.useState("TemperatureChart")
+	const [shouldRedirect, setShouldRedirect] = React.useState(false)
 	const chart = () => {
 		setChart("TemperatureChart")
 		// setChartData({
@@ -24,12 +30,17 @@ const Dashboard = () => {
 		// 	]
 		// })
 	}
-
+	function showData() {
+		setShouldRedirect(true)
+	}
 	
 	const CustomTag = `TemperatureChart`
 	React.useEffect(() => {
 		chart ()
 	}, [])
+	if(shouldRedirect) {
+		return <Redirect to='./data' /> 
+	}
 	return(
 	
 		<div className="App">
@@ -40,7 +51,9 @@ const Dashboard = () => {
 			<div style={{height:'400px', width: '700px', marginTop: '-24px', marginRight:'40px', marginBottom:'32px'}}>
 				<TemperatureChart></TemperatureChart>
 			</div>
+			<Button onClick={showData} className="btn btn-primary" style={{ backgroundColor: '#000000' , marginLeft: '324px', marginTop:'-100px', marginBottom: '20px'}}>View Data</Button>
 			<TodayGrid></TodayGrid>
+
 		</div>
 
 	)
