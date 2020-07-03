@@ -9,7 +9,7 @@ export default class BrightnessStrategy {
                 let brightnesses: ChartData[] = []
                 data.data.forEach( function(brightness: any) {
                     let chartElement: ChartData = {
-                        value: brightness.brightness as number,
+                        value: 4095 - (brightness.brightness as number),
                         date: brightness.date as string
                     };
                     brightnesses.push(chartElement);

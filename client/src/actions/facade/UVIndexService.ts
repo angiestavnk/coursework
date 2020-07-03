@@ -5,7 +5,7 @@ export default class UVIndexService {
         const url = 'https://api.openuv.io/api/v1/uv?lat=47.01&lng=28.88'
         const response = await fetch(url, {
             headers: {
-                'x-access-token': 'be92d6b3ae98c152b79516bf170f1ea6'
+                'x-access-token': 'f376ce1cced719e63aa85b41e96048ba'
               }
         });
         const uvIndex = await response.json();
